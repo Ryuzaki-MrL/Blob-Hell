@@ -57,8 +57,10 @@
             <kind>1</kind>
             <string>x += xfric;
 y += yfric;
-xfric -= 0.1*sign(xfric);
-yfric -= 0.1*sign(yfric);
+//xfric -= 0.25*sign(xfric);
+//yfric -= 0.25*sign(yfric);
+xfric = 0;
+yfric = 0;
 </string>
           </argument>
         </arguments>
@@ -81,15 +83,19 @@ yfric -= 0.1*sign(yfric);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (keyboard_check(vk_left) || gamepad_button_check(0, gp_padl)) {
-    if (xfric &gt; -fricmax) xfric -= fricstep;
-} else if (keyboard_check(vk_right) || gamepad_button_check(0, gp_padr)) {
-    if (xfric &lt; fricmax) xfric += fricstep;
+            <string>if (keyboard_check(vk_left) || keyboard_check(ord('A')) || gamepad_button_check(0, gp_padl)) {
+    //if (xfric &gt; -fricmax) xfric -= fricstep;
+    xfric = -4;
+} else if (keyboard_check(vk_right) || keyboard_check(ord('D')) || gamepad_button_check(0, gp_padr)) {
+    //if (xfric &lt; fricmax) xfric += fricstep;
+    xfric = 4;
 }
-if (keyboard_check(vk_up) || gamepad_button_check(0, gp_padu)) {
-    if (yfric &gt; -fricmax) yfric -= fricstep;
-} else if (keyboard_check(vk_down) || gamepad_button_check(0, gp_padd)) {
-    if (yfric &lt; fricmax) yfric += fricstep;
+if (keyboard_check(vk_up) || keyboard_check(ord('W')) || gamepad_button_check(0, gp_padu)) {
+    //if (yfric &gt; -fricmax) yfric -= fricstep;
+    yfric = -4;
+} else if (keyboard_check(vk_down) || keyboard_check(ord('S')) || gamepad_button_check(0, gp_padd)) {
+    //if (yfric &lt; fricmax) yfric += fricstep;
+    yfric = 4;
 }
 </string>
           </argument>
